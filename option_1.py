@@ -5,7 +5,7 @@ import random
 D = 1000    # Sample duration of the simulation in "minutes"
 A = 2       # Average arrival time (one new passenger every A minutes)
 S = 5       # Average service rate (service time per passenger in minutes)
-number_of_stations = 5
+number_of_stations = 5 
 
 # Generate arrival and service times
 def generate_arrivals(duration, arrival_rate):
@@ -28,7 +28,7 @@ def single_queue(arrivals, service_rate, number_of_stations):
     waiting_times   = [] 
 
     for arrival_time in arrivals:
-        queue((arrival_time, generate_service_time(service_rate)))
+        queue.append((arrival_time, generate_service_time(service_rate)))
 
     while queue:
         arrival_time, service_time = queue.pop(0)
@@ -48,4 +48,4 @@ def single_queue(arrivals, service_rate, number_of_stations):
 arrivals = generate_arrivals(D, A)
 average_waiting_time_1 = single_queue(arrivals, S, number_of_stations)
 
-print(f'Option 1: Average waiting time for "Single Queue" {average_waiting_time_1} minutes')
+print(f'Option 1: Average waiting time for "Single Queue" {average_waiting_time_1:.2f} minutes')
