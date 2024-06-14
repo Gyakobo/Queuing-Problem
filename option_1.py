@@ -1,5 +1,4 @@
 import numpy as np
-import heapq
 import random
 
 # Given parameters
@@ -27,13 +26,12 @@ def single_queue(arrivals, service_rate, number_of_stations):
     queue           = []
     servers         = [0] * number_of_stations
     waiting_times   = [] 
-    waiting_time    = 0
 
     for arrival_time in arrivals:
-        heapq.heappush(queue, (arrival_time, generate_service_time(service_rate)))
+        queue((arrival_time, generate_service_time(service_rate)))
 
     while queue:
-        arrival_time, service_time = heapq.heappop(queue)
+        arrival_time, service_time = queue.pop(0)
         next_free_time = min(servers)
         if next_free_time > arrival_time:
             waiting_time = next_free_time - arrival_time 
