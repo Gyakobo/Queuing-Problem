@@ -10,8 +10,9 @@ class Simulation:
         self.service_rate = service_rate
         self.policy = policy
         self.sim_duration = sim_duration
-        
-        self.queues = [[] for _ in range(num_stations)]
+
+        for _ in range(num_stations): 
+            self.queues.append([])
         self.waiting_times = [[] for _ in range(num_stations)]
         self.occupancy_times = [0] * num_stations
         self.total_passengers = 0
