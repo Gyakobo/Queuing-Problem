@@ -1,6 +1,12 @@
-import sys
-from random import expovariate, randint 
+# DISCLAIMOR: Please run this program with python3.10 (or above). Any version lower will not work
+
+# Import mean function from stats library, and expovariate and randint functions from random library 
 from statistics import mean
+from random import expovariate, randint 
+
+# Once again it is important to run this program with Python3.10 (or above)
+# It
+import sys
 assert sys.version_info >= (3, 10)
 
 # We are going to stick all simulation types() all into one class
