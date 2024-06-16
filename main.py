@@ -141,15 +141,15 @@ def print_analysis(simulation, type_of_option_name):
 
         occupancy_rate = simulation.occupancy_times[i] / simulation.simulation_duration * 100
         
-        print(f"station {i+1}:")
-        print(f"  Average waiting time: {avg_waiting_time:.3f}")
-        print(f"  Maximum waiting time: {max_waiting_time:.3f}")
+        print(f"Station {i+1}:")
+        print(f"  Simulation duration:  {simulation.simulation_duration}")
         print(f"  Maximum queue length: {max_queue_length}")
+        print(f"  Average waiting time: {avg_waiting_time:.3f} && Maximum waiting time: {max_waiting_time:.3f}")
         print(f"  Occupancy rate: {occupancy_rate:.3f}%")
     print(end="++++++++++++++++++++++++++++++++++++++++++++++++")
     print(end="\n\n")
 
-# Print results for each type_of_option
+# And finally, print the results for each type_of_option
 print_analysis(sim_single_queue, "Single Queue")
 print_analysis(sim_round_robin, "Round Robin")
 print_analysis(sim_shortest_queue, "Shortest Queue")
