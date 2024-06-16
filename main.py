@@ -5,11 +5,10 @@ from statistics import mean
 from random import expovariate, randint 
 
 # Once again it is important to run this program with Python3.10 (or above)
-# It
 import sys
 assert sys.version_info >= (3, 10)
 
-# We are going to stick all simulation types() all into one class
+# We are going to stick all simulation types(single queue, round robin, shortest queue, random queue) all into one class
 class Custom_simulation:
     def __init__(self, number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration):
         self.number_of_stations = number_of_stations
@@ -40,7 +39,7 @@ class Custom_simulation:
             if self.current_time >= self.next_arrival_time:
                 self.total_passengers += 1
 
-                switch self.type_of_option:
+                match self.type_of_option:
                     case "single_queue":
                         self.assign_single_queue()
                     case "round_robin":

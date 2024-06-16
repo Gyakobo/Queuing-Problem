@@ -14,6 +14,12 @@ This project showcases 4 examples of 'queuing'
 
 ## Methodology
 
+Please run the following command to ensure the version of python you currently have:
+
+```bash
+$ python3 -V
+```
+
 It is important to understand that you might need to run this program with `Python3.10 (or above)`. If you wish to update to Python version `3.12` please follow the following instructions: 
 
 ```bash
