@@ -1,0 +1,116 @@
+Option: Single Queue
+Total Number of Passengers: 511
+Station 1:
+  Simulation duration:  1000
+  Maximum queue length: 442
+  Average waiting time: 413.203 && Maximum waiting time: 880.000
+  Occupancy rate: 98.293%
+Station 2:
+  Simulation duration:  1000
+  Maximum queue length: 442
+  Average waiting time: 0.000 && Maximum waiting time: 0.000
+  Occupancy rate: 0.000%
+Station 3:
+  Simulation duration:  1000
+  Maximum queue length: 442
+  Average waiting time: 0.000 && Maximum waiting time: 0.000
+  Occupancy rate: 0.000%
+Station 4:
+  Simulation duration:  1000
+  Maximum queue length: 442
+  Average waiting time: 0.000 && Maximum waiting time: 0.000
+  Occupancy rate: 0.000%
+Station 5:
+  Simulation duration:  1000
+  Maximum queue length: 442
+  Average waiting time: 0.000 && Maximum waiting time: 0.000
+  Occupancy rate: 0.000%
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Option: Round Robin
+Total Number of Passengers: 498
+Station 1:
+  Simulation duration:  1000
+  Maximum queue length: 15
+  Average waiting time: 91.480 && Maximum waiting time: 206.000
+  Occupancy rate: 92.542%
+Station 2:
+  Simulation duration:  1000
+  Maximum queue length: 15
+  Average waiting time: 132.505 && Maximum waiting time: 228.000
+  Occupancy rate: 93.947%
+Station 3:
+  Simulation duration:  1000
+  Maximum queue length: 15
+  Average waiting time: 100.071 && Maximum waiting time: 185.000
+  Occupancy rate: 94.419%
+Station 4:
+  Simulation duration:  1000
+  Maximum queue length: 15
+  Average waiting time: 98.954 && Maximum waiting time: 163.000
+  Occupancy rate: 95.154%
+Station 5:
+  Simulation duration:  1000
+  Maximum queue length: 15
+  Average waiting time: 83.678 && Maximum waiting time: 136.000
+  Occupancy rate: 88.249%
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Option: Shortest Queue
+Total Number of Passengers: 544
+Station 1:
+  Simulation duration:  1000
+  Maximum queue length: 13
+  Average waiting time: 73.041 && Maximum waiting time: 195.000
+  Occupancy rate: 94.910%
+Station 2:
+  Simulation duration:  1000
+  Maximum queue length: 13
+  Average waiting time: 73.709 && Maximum waiting time: 152.000
+  Occupancy rate: 96.059%
+Station 3:
+  Simulation duration:  1000
+  Maximum queue length: 13
+  Average waiting time: 87.244 && Maximum waiting time: 226.000
+  Occupancy rate: 95.877%
+Station 4:
+  Simulation duration:  1000
+  Maximum queue length: 13
+  Average waiting time: 66.730 && Maximum waiting time: 109.000
+  Occupancy rate: 93.047%
+Station 5:
+  Simulation duration:  1000
+  Maximum queue length: 13
+  Average waiting time: 74.042 && Maximum waiting time: 143.000
+  Occupancy rate: 92.899%
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Option: Random Queue
+Total Number of Passengers: 540
+Station 1:
+  Simulation duration:  1000
+  Maximum queue length: 28
+  Average waiting time: 44.165 && Maximum waiting time: 116.000
+  Occupancy rate: 82.292%
+Station 2:
+  Simulation duration:  1000
+  Maximum queue length: 28
+  Average waiting time: 175.241 && Maximum waiting time: 315.000
+  Occupancy rate: 89.867%
+Station 3:
+  Simulation duration:  1000
+  Maximum queue length: 28
+  Average waiting time: 117.888 && Maximum waiting time: 358.000
+  Occupancy rate: 93.034%
+Station 4:
+  Simulation duration:  1000
+  Maximum queue length: 28
+  Average waiting time: 35.596 && Maximum waiting time: 106.000
+  Occupancy rate: 89.234%
+Station 5:
+  Simulation duration:  1000
+  Maximum queue length: 28
+  Average waiting time: 71.941 && Maximum waiting time: 151.000
+  Occupancy rate: 93.772%
+++++++++++++++++++++++++++++++++++++++++++++++++
+

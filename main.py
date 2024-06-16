@@ -74,7 +74,9 @@ class Custom_simulation:
         
     def run(self):
         while self.time < self.simulation_duration:
+            # Adjust the current time
             self.time += 1
+
             if self.time >= self.next_arrival_time:
                 self.total_passengers += 1
 
@@ -124,8 +126,8 @@ sim_random_queue.run()
 
 # Function to calculate and print results
 def print_analysis(simulation, type_of_option_name):
-    print(f"{type_of_option_name} type_of_option")
-    print(f"Total passengers: {simulation.total_passengers}")
+    print(f"Option: {type_of_option_name}")
+    print(f"Total Number of Passengers: {simulation.total_passengers}")
     for i in range(simulation.number_of_stations):
         if simulation.waiting_times[i]: 
             avg_waiting_time = mean(simulation.waiting_times[i])
