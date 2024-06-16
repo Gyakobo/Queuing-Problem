@@ -10,6 +10,13 @@ if not sys.version_info >= (3, 10):
     print("Please run code on 'Python3.10 (or above)'")
     exit(-1)
 
+
+# Given Parameters 
+simulation_duration = 1000 # D = 1000 (minutes) 
+arrival_rate = 2           # A = 2 (minute/passenger)
+service_rate = 10          # S = 5 * A; Given by the assignment
+
+
 # We are going to stick all simulation types(single queue, round robin, shortest queue, random queue) all into one class
 class Custom_simulation:
     def __init__(self, number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration):
@@ -72,8 +79,12 @@ class Custom_simulation:
             for i in range(self.number_of_stations):
                 if self.current_time >= self.service_end_times[i] and self.queues[i]:
 
+                    # Adjust the arrival time
                     arrival_time = self.queues[i].pop(0)
+
+                    # Adjust the wating time
                     waiting_time = self.current_time - arrival_time
+
                     self.waiting_times[i].append(waiting_time)
                     service_time = expovariate(1.0 / self.service_rate)
                     self.occupancy_times[i] += service_time
@@ -83,11 +94,6 @@ def run_simulation(type_of_option, number_of_stations=5, arrival_rate=1, service
     sim = Custom_simulation(number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration)
     sim.run()
     return sim
-
-# Example usage
-simulation_duration = 100 
-arrival_rate = 2
-service_rate = 10
 
 # Option 1: Single Queue
 sim_single_queue = run_simulation('single_queue', simulation_duration=simulation_duration, arrival_rate=arrival_rate, service_rate=service_rate)
