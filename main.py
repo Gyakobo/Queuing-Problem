@@ -21,11 +21,11 @@ service_rate = 10          # S = 5 * A; Given by the assignment
 class Custom_simulation:
     def __init__(self, number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration):
         self.number_of_stations = number_of_stations
-        self.arrival_rate = arrival_rate
+        self.arrival_rate = arrival_rate        # Option 1 
         self.service_rate = service_rate
         self.type_of_option = type_of_option
         self.simulation_duration = simulation_duration
-
+        
         self.queues             = []
         self.waiting_times      = []
         self.occupancy_times    = []
