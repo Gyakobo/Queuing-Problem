@@ -6,7 +6,9 @@ from random import expovariate, randint
 
 # Once again it is important to run this program with Python3.10 (or above)
 import sys
-assert sys.version_info >= (3, 10)
+if not sys.version_info >= (3, 10):
+    print("Please run code on 'Python3.10 (or above)'")
+    exit(-1)
 
 # We are going to stick all simulation types(single queue, round robin, shortest queue, random queue) all into one class
 class Custom_simulation:
@@ -33,6 +35,22 @@ class Custom_simulation:
         self.next_arrival_time = expovariate(1.0 / self.arrival_rate)
         self.round_robin = 0
         
+    def single_queue(self):
+        self.queues[0].append(self.current_time)
+    
+    def round_robin(self):
+        station = self.round_robin % self.number_of_stations
+        self.queues[station].append(self.current_time)
+        self.round_robin += 1
+    
+    def shortest_queue(self):
+        station = min(range(self.number_of_stations), key=lambda x: len(self.queues[x]))
+        self.queues[station].append(self.current_time)
+    
+    def random_queue(self):
+        station = randint(0, self.number_of_stations - 1)
+        self.queues[station].append(self.current_time)
+        
     def run(self):
         while self.current_time < self.simulation_duration:
             self.current_time += 1
@@ -41,50 +59,25 @@ class Custom_simulation:
 
                 match self.type_of_option:
                     case "single_queue":
-                        self.assign_single_queue()
+                        self.single_queue()
                     case "round_robin":
-                        self.assign_round_robin()
+                        self.round_robin()
                     case "shortest_queue":
-                        self.assign_shortest_queue()
+                        self.shortest_queue()
                     case "random_queue":
-                        self.assign_random_queue()
+                        self.random_queue()
                 
-                '''
-                if self.type_of_option == 'single_queue':
-                    self.assign_single_queue()
-                elif self.type_of_option == 'round_robin':
-                    self.assign_round_robin()
-                elif self.type_of_option == 'shortest_queue':
-                    self.assign_shortest_queue()
-                elif self.type_of_option == 'random_queue':
-                    self.assign_random_queue()
-                '''
                 self.next_arrival_time += expovariate(1.0 / self.arrival_rate)
             
             for i in range(self.number_of_stations):
                 if self.current_time >= self.service_end_times[i] and self.queues[i]:
+
                     arrival_time = self.queues[i].pop(0)
                     waiting_time = self.current_time - arrival_time
                     self.waiting_times[i].append(waiting_time)
                     service_time = expovariate(1.0 / self.service_rate)
                     self.occupancy_times[i] += service_time
                     self.service_end_times[i] = self.current_time + service_time
-        
-    def assign_single_queue(self):
-        self.queues[0].append(self.current_time)
-    
-    def assign_round_robin(self):
-        station = self.round_robin % self.number_of_stations
-        self.queues[station].append(self.current_time)
-        self.round_robin += 1
-    
-    def assign_shortest_queue(self):
-        station = min(range(self.number_of_stations), key=lambda x: len(self.queues[x]))
-        self.queues[station].append(self.current_time)
-    
-    def assign_random_queue(self):
-        station = randint(0, self.number_of_stations - 1)
-        self.queues[station].append(self.current_time)
         
 def run_simulation(type_of_option, number_of_stations=5, arrival_rate=1, service_rate=5, simulation_duration=1000):
     sim = Custom_simulation(number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration)
@@ -109,7 +102,7 @@ sim_shortest_queue = run_simulation('shortest_queue', simulation_duration=simula
 sim_random_queue = run_simulation('random_queue', simulation_duration=simulation_duration, arrival_rate=arrival_rate, service_rate=service_rate)
 
 # Function to calculate and print results
-def print_results(sim, type_of_option_name):
+def print_analysis(sim, type_of_option_name):
     print(f"Results for {type_of_option_name} type_of_option")
     print(f"Total passengers: {sim.total_passengers}")
     for i in range(sim.number_of_stations):
@@ -127,7 +120,7 @@ def print_results(sim, type_of_option_name):
     print(end="\n\n")
 
 # Print results for each type_of_option
-print_results(sim_single_queue, "Single Queue")
-print_results(sim_round_robin, "Round Robin")
-print_results(sim_shortest_queue, "Shortest Queue")
-print_results(sim_random_queue, "Random Queue")
+print_analysis(sim_single_queue, "Single Queue")
+print_analysis(sim_round_robin, "Round Robin")
+print_analysis(sim_shortest_queue, "Shortest Queue")
+print_analysis(sim_random_queue, "Random Queue")
