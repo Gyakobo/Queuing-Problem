@@ -23,21 +23,21 @@ class Custom_simulation:
     def __init__(self, number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration):
 
         # Mutual Variables
-        self.type_of_option = type_of_option
-        self.simulation_duration = simulation_duration
-        self.arrival_rate = arrival_rate
-        self.service_rate = service_rate
-        self.queues             = []
-        self.waiting_times      = []
-        self.occupancy_times    = []
-        self.service_end_times  = []
+        self.type_of_option         = type_of_option
+        self.simulation_duration    = simulation_duration
+        self.arrival_rate           = arrival_rate
+        self.service_rate           = service_rate
+        self.q                      = [] # Queues
+        self.waiting_times          = []
+        self.occupancy_times        = []
+        self.service_end_times      = []
 
 
         # Option 1 && 2 var(s)
         self.number_of_stations = number_of_stations
         for _ in range(number_of_stations): 
             # The mutual occupiable queue
-            self.queues.append([])
+            self.q.append([])
             # Wait time per service station 
             self.waiting_times.append([])
             
@@ -54,23 +54,23 @@ class Custom_simulation:
         self.next_arrival_time = expovariate(1.0 / self.arrival_rate)
         
     def single_queue_func(self):
-        self.queues[0].append(self.time)
+        self.q[0].append(self.time)
     
     def round_robin_func(self):
         station = self.round_robin % self.number_of_stations
-        self.queues[station].append(self.time)
+        self.q[station].append(self.time)
         self.round_robin += 1
     
     def shortest_queue_func(self):
         def queue_length(var):
-            return len(self.queues[var])
+            return len(self.q[var])
 
         station = min(range(self.number_of_stations), key=queue_length)
-        self.queues[station].append(self.time)
+        self.q[station].append(self.time)
     
     def random_queue_func(self):
         station = randint(0, self.number_of_stations - 1)
-        self.queues[station].append(self.time)
+        self.q[station].append(self.time)
         
     def run(self):
         while self.time < self.simulation_duration:
@@ -91,10 +91,10 @@ class Custom_simulation:
                 self.next_arrival_time += expovariate(1.0 / self.arrival_rate)
             
             for i in range(self.number_of_stations):
-                if self.time >= self.service_end_times[i] and self.queues[i]:
+                if self.time >= self.service_end_times[i] and self.q[i]:
 
                     # Adjust the arrival time
-                    arrival_time = self.queues[i].pop(0)
+                    arrival_time = self.q[i].pop(0)
 
                     # Adjust the wating time
                     waiting_time = self.time - arrival_time
@@ -104,11 +104,6 @@ class Custom_simulation:
                     self.occupancy_times[i] += service_time
                     self.service_end_times[i] = self.time + service_time
         
-def run_simulation(type_of_option, number_of_stations=5, arrival_rate=1, service_rate=5, simulation_duration=1000):
-    sim = Custom_simulation(number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration)
-    sim.run()
-    return sim
-
 
 # Option 1: Single Queue
 sim_single_queue = Custom_simulation(number_of_given_stations, arrival_rate, service_rate, "single_queue", simulation_duration)
@@ -128,16 +123,25 @@ sim_random_queue.run()
 
 
 # Function to calculate and print results
-def print_analysis(sim, type_of_option_name):
-    print(f"Results for {type_of_option_name} type_of_option")
-    print(f"Total passengers: {sim.total_passengers}")
-    for i in range(sim.number_of_stations):
-        avg_waiting_time = mean(sim.waiting_times[i]) if sim.waiting_times[i] else 0
-        max_waiting_time = max(sim.waiting_times[i]) if sim.waiting_times[i] else 0
-        max_queue_length = max(len(queue) for queue in sim.queues) if sim.queues else 0
-        occupancy_rate = sim.occupancy_times[i] / sim.simulation_duration * 100
+def print_analysis(simulation, type_of_option_name):
+    print(f"{type_of_option_name} type_of_option")
+    print(f"Total passengers: {simulation.total_passengers}")
+    for i in range(simulation.number_of_stations):
+        if simulation.waiting_times[i]: 
+            avg_waiting_time = mean(simulation.waiting_times[i])
+        else: avg_waiting_time = 0
+
+        if simulation.waiting_times[i]: 
+            max_waiting_time = max(simulation.waiting_times[i])
+        else: max_waiting_time = 0
+
+        if simulation.q: 
+            max_queue_length = max(len(queue) for queue in simulation.q)
+        else: max_queue_length = 0
+
+        occupancy_rate = simulation.occupancy_times[i] / simulation.simulation_duration * 100
         
-        print(f"Station {i+1}:")
+        print(f"station {i+1}:")
         print(f"  Average waiting time: {avg_waiting_time:.3f}")
         print(f"  Maximum waiting time: {max_waiting_time:.3f}")
         print(f"  Maximum queue length: {max_queue_length}")
