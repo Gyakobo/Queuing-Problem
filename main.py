@@ -14,18 +14,19 @@ if not sys.version_info >= (3, 10):
 # Given Parameters 
 simulation_duration = 1000 # D = 1000 (minutes) 
 arrival_rate = 2           # A = 2 (minute/passenger)
-service_rate = 10          # S = 5 * A; Given by the assignment
+service_rate = 10          # S = 5 * A => 5 * 2 => 10; Given by the assignment
+
 
 
 # We are going to stick all simulation types(single queue, round robin, shortest queue, random queue) all into one class
 class Custom_simulation:
     def __init__(self, number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration):
         self.number_of_stations = number_of_stations
-        self.arrival_rate = arrival_rate        # Option 1 
+        self.arrival_rate = arrival_rate
         self.service_rate = service_rate
         self.type_of_option = type_of_option
         self.simulation_duration = simulation_duration
-        
+
         self.queues             = []
         self.waiting_times      = []
         self.occupancy_times    = []
@@ -42,19 +43,19 @@ class Custom_simulation:
         self.next_arrival_time = expovariate(1.0 / self.arrival_rate)
         self.round_robin = 0
         
-    def single_queue(self):
+    def single_queue_func(self):
         self.queues[0].append(self.current_time)
     
-    def round_robin(self):
+    def round_robin_func(self):
         station = self.round_robin % self.number_of_stations
         self.queues[station].append(self.current_time)
         self.round_robin += 1
     
-    def shortest_queue(self):
+    def shortest_queue_func(self):
         station = min(range(self.number_of_stations), key=lambda x: len(self.queues[x]))
         self.queues[station].append(self.current_time)
     
-    def random_queue(self):
+    def random_queue_func(self):
         station = randint(0, self.number_of_stations - 1)
         self.queues[station].append(self.current_time)
         
@@ -66,13 +67,13 @@ class Custom_simulation:
 
                 match self.type_of_option:
                     case "single_queue":
-                        self.single_queue()
+                        self.single_queue_func()
                     case "round_robin":
-                        self.round_robin()
+                        self.round_robin_func()
                     case "shortest_queue":
-                        self.shortest_queue()
+                        self.shortest_queue_func()
                     case "random_queue":
-                        self.random_queue()
+                        self.random_queue_func()
                 
                 self.next_arrival_time += expovariate(1.0 / self.arrival_rate)
             
@@ -95,6 +96,7 @@ def run_simulation(type_of_option, number_of_stations=5, arrival_rate=1, service
     sim.run()
     return sim
 
+
 # Option 1: Single Queue
 sim_single_queue = run_simulation('single_queue', simulation_duration=simulation_duration, arrival_rate=arrival_rate, service_rate=service_rate)
 
@@ -106,6 +108,7 @@ sim_shortest_queue = run_simulation('shortest_queue', simulation_duration=simula
 
 # Option 2.C: Random Queue
 sim_random_queue = run_simulation('random_queue', simulation_duration=simulation_duration, arrival_rate=arrival_rate, service_rate=service_rate)
+
 
 # Function to calculate and print results
 def print_analysis(sim, type_of_option_name):
