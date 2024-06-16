@@ -21,20 +21,26 @@ service_rate = 10          # S = 5 * A => 5 * 2 => 10; Given by the assignment
 # We are going to stick all simulation types(single queue, round robin, shortest queue, random queue) all into one class
 class Custom_simulation:
     def __init__(self, number_of_stations, arrival_rate, service_rate, type_of_option, simulation_duration):
-        self.number_of_stations = number_of_stations
-        self.arrival_rate = arrival_rate
-        self.service_rate = service_rate
+
+        # Mutual Variables
         self.type_of_option = type_of_option
         self.simulation_duration = simulation_duration
-
+        self.arrival_rate = arrival_rate
+        self.service_rate = service_rate
         self.queues             = []
         self.waiting_times      = []
         self.occupancy_times    = []
         self.service_end_times  = []
 
+
+        # Option 1 && 2 var(s)
+        self.number_of_stations = number_of_stations
         for _ in range(number_of_stations): 
+            # The mutual occupiable queue
             self.queues.append([])
+            # Wait time per server
             self.waiting_times.append([])
+            
             self.occupancy_times.append(0)
             self.service_end_times.append(0)
 
