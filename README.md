@@ -31,7 +31,7 @@ $ sudo apt-get install python3.12
 ## Results and Analysis
 
 1) **Single Queue Results** 
-At most 511 passengers were processed.
+At most `511` passengers were processed.
 
 ```bash
 Option: Single Queue
@@ -64,7 +64,7 @@ Station 5:
 ```
 
 2) **Round Robin Results**
-At most 498 passengers were processed.
+At most `498` passengers were processed.
 
 ```bash
 Option: Round Robin
@@ -97,7 +97,7 @@ Station 5:
 ```
 
 3) **Shortest Queue Results**
-At most 544 passengers were processed.
+At most `544` passengers were processed.
 
 ```bash
 Option: Shortest Queue
@@ -130,7 +130,7 @@ Station 5:
 ```
 
 4) **Random Queue Results**
-At most 540 passengers were processed.
+At most `540` passengers were processed.
 
 ```bash
 Option: Random Queue
