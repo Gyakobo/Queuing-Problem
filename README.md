@@ -64,7 +64,7 @@ def shortest_queue_func(self):
     self.q[station].append(self.time)
 ```
 
-4. Lastly, we've got the `Random Queue`. Basically each passenger joins a random qeueu.
+4. Lastly, we've got the `Random Queue`. Basically each passenger joins a random queue.
 
 ```python
 def random_queue_func(self):
