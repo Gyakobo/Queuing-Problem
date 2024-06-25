@@ -16,7 +16,7 @@ Hearkening from the intro statement, this project basically tries to simulate a 
 
 ## Methodology
 
-Before you run this [program]() please run the following command to ensure the version of python you currently have:
+Before you run this [program](https://github.com/Gyakobo/Queuing-Problem/blob/main/main.py) please run the following command to ensure the version of python you currently have:
 
 ```bash
 $ python3 -V
