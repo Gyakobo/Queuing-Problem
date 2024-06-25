@@ -32,8 +32,45 @@ $ sudo apt-get install python3.12
 
 1. To start off, we basically group all the passengers in one `Single Queue/Line` and process the one after the other. Nothing special here just an ordinary long queue. 
 
-2. The second, option would be to use a `Round Robin Queue`
+```python
+def single_queue_func(self):
+    self.q[0].append(self.time)
+```
 
+2. The second, option would be to use a `Round Robin Queue`. 
+
+```python
+def round_robin_func(self):
+    station = self.round_robin % self.number_of_stations
+    self.q[station].append(self.time)
+    self.round_robin += 1
+```
+
+A `round-robin queue` is a type of scheduling algorithm used in computing where each process or task is assigned a fixed time slot in a cyclic order. This ensures that all tasks are treated equally and prevents any single task from monopolizing the CPU. It is particularly useful in time-sharing systems where multiple users or tasks require equal CPU time.
+
+#### Characteristics of Round Robin Queue:
+* Fixed Time Quantum: Each task is given a specific time slice or quantum to execute.
+* Cyclic Order: Tasks are arranged in a circular queue and each task gets its turn in a cyclic manner.
+* Preemption: If a task does not complete within its allocated time quantum, it is preempted and placed at the end of the queue.
+
+3. Another option is the `Shortest Queue`. Long story short, each passenger attends the shortest queue he can find at the moment. 
+
+```python
+def shortest_queue_func(self):
+    def queue_length(var):
+        return len(self.q[var])
+
+    station = min(range(self.number_of_stations), key=queue_length)
+    self.q[station].append(self.time)
+```
+
+4. Lastly, we've got the `Random Queue`. Basically each passenger joins a random qeueu.
+
+```python
+def random_queue_func(self):
+    station = randint(0, self.number_of_stations - 1)
+    self.q[station].append(self.time)
+```
 
 ## Results and Analysis
 
