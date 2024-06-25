@@ -30,6 +30,9 @@ $ sudo apt-get update
 $ sudo apt-get install python3.12
 ```
 
+1. To start off, we basically group all the passengers in one single line and process the one after the other. Nothing special here just an ordinary long queue. 
+
+
 ## Results and Analysis
 
 1) **Single Queue Results** 
