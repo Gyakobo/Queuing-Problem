@@ -96,8 +96,71 @@ Station 5:
   Occupancy rate: 92.111%
 ```
 
-3) **Shortest Queue**
-At most 544 passengers were processed
+3) **Shortest Queue Results**
+At most 544 passengers were processed.
+
+```bash
+Option: Shortest Queue
+Total Number of Passengers: 499
+Station 1:
+  Simulation duration:  1000
+  Maximum queue length: 2
+  Average waiting time: 34.312 && Maximum waiting time: 78.000
+  Occupancy rate: 94.890%
+Station 2:
+  Simulation duration:  1000
+  Maximum queue length: 2
+  Average waiting time: 30.727 && Maximum waiting time: 100.000
+  Occupancy rate: 94.332%
+Station 3:
+  Simulation duration:  1000
+  Maximum queue length: 2
+  Average waiting time: 28.590 && Maximum waiting time: 100.000
+  Occupancy rate: 94.224%
+Station 4:
+  Simulation duration:  1000
+  Maximum queue length: 2
+  Average waiting time: 27.674 && Maximum waiting time: 105.000
+  Occupancy rate: 90.925%
+Station 5:
+  Simulation duration:  1000
+  Maximum queue length: 2
+  Average waiting time: 22.056 && Maximum waiting time: 70.000
+  Occupancy rate: 91.045%
+```
+
+4) **Random Queue Results**
+At most 540 passengers were processed.
+
+```bash
+Option: Random Queue
+Total Number of Passengers: 511
+Station 1:
+  Simulation duration:  1000
+  Maximum queue length: 23
+  Average waiting time: 51.553 && Maximum waiting time: 144.000
+  Occupancy rate: 89.781%
+Station 2:
+  Simulation duration:  1000
+  Maximum queue length: 23
+  Average waiting time: 60.466 && Maximum waiting time: 158.000
+  Occupancy rate: 90.702%
+Station 3:
+  Simulation duration:  1000
+  Maximum queue length: 23
+  Average waiting time: 26.030 && Maximum waiting time: 92.000
+  Occupancy rate: 84.166%
+Station 4:
+  Simulation duration:  1000
+  Maximum queue length: 23
+  Average waiting time: 179.733 && Maximum waiting time: 309.000
+  Occupancy rate: 97.104%
+Station 5:
+  Simulation duration:  1000
+  Maximum queue length: 23
+  Average waiting time: 17.659 && Maximum waiting time: 66.000
+  Occupancy rate: 81.317%
+```
 
 ## License
 MIT
