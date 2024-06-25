@@ -30,7 +30,9 @@ $ sudo apt-get update
 $ sudo apt-get install python3.12
 ```
 
-1. To start off, we basically group all the passengers in one single line and process the one after the other. Nothing special here just an ordinary long queue. 
+1. To start off, we basically group all the passengers in one `Single Queue/Line` and process the one after the other. Nothing special here just an ordinary long queue. 
+
+2. The second, option would be to use a `Round Robin Queue`
 
 
 ## Results and Analysis
