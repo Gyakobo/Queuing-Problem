@@ -75,6 +75,7 @@ def random_queue_func(self):
 ## Results and Analysis
 
 1) **Single Queue Results** 
+
 At most `511` passengers were processed.
 
 ```bash
@@ -108,6 +109,7 @@ Station 5:
 ```
 
 2) **Round Robin Results**
+
 At most `498` passengers were processed.
 
 ```bash
@@ -141,6 +143,7 @@ Station 5:
 ```
 
 3) **Shortest Queue Results**
+
 At most `544` passengers were processed.
 
 ```bash
@@ -174,6 +177,7 @@ Station 5:
 ```
 
 4) **Random Queue Results**
+
 At most `540` passengers were processed.
 
 ```bash
