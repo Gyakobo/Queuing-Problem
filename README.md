@@ -8,7 +8,7 @@ Author: [Andrew Gyakobo](https://github.com/Gyakobo)
 >[!IMPORTANT]
 >It is preferable that you run this code exclusively with `Python 3.10 (and onward)`
 
-This project showcases 4 examples of 'queuing'
+This project showcases 4 examples of `queuing`: Single Queue, Round Robin, Shortest Queue, Random Queue, that would try to process as many persons as possible.
 
 ## Introduction
 
