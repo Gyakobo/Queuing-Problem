@@ -12,9 +12,11 @@ This project showcases 4 examples of `queuing`: Single Queue, Round Robin, Short
 
 ## Introduction
 
+Hearkening from the intro statement, this project basically tries to simulate a 5 vending stations which would in their turn accept customers. How and in what formation each queue would be organised will be analized in the methodology. 
+
 ## Methodology
 
-Please run the following command to ensure the version of python you currently have:
+Before you run this [program]() please run the following command to ensure the version of python you currently have:
 
 ```bash
 $ python3 -V
