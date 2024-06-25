@@ -22,7 +22,7 @@ Before you run this [program]() please run the following command to ensure the v
 $ python3 -V
 ```
 
-It is important to understand that you might need to run this program with `Python3.10 (or above)`. If you wish to update to Python version `3.12` please follow the following instructions: 
+It is important to understand that you ought need to run this program with `Python3.10 (or above)`. If you wish to update to Python version `3.12` please follow the following instructions: 
 
 ```bash
 $ sudo add-apt-repository ppa:deadsnakes/ppa
